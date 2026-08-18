@@ -64,3 +64,115 @@
   width:21px !important;
   height:21px !important;
 }
+
+/* ===== BoscTech sin imágenes fotográficas ===== */
+
+.hero-side-clean{
+  position:relative;
+  min-height:520px;
+  border-radius:24px;
+  overflow:visible;
+}
+
+.hero-pattern{
+  position:absolute;
+  inset:38px 0 38px 12%;
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(227,27,35,.16) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 80% 25%, rgba(12,34,56,.12) 0 9%, transparent 9.5%),
+    linear-gradient(135deg, rgba(255,255,255,.75), rgba(236,242,247,.98));
+  border:1px solid rgba(12,34,56,.10);
+  box-shadow:0 25px 60px rgba(12,34,56,.08);
+}
+.hero-pattern::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(12,34,56,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12,34,56,.055) 1px, transparent 1px);
+  background-size:30px 30px;
+  border-radius:inherit;
+}
+.hero-pattern::after{
+  content:"BOSCH · REPARACIÓN · SERVICIO TÉCNICO";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:78%;
+  text-align:center;
+  font-size:clamp(18px,2.5vw,32px);
+  font-weight:900;
+  letter-spacing:.16em;
+  color:rgba(12,34,56,.12);
+}
+
+.hero-side-clean .info{
+  position:absolute !important;
+  right:-15px !important;
+  bottom:-28px !important;
+  width:370px !important;
+  z-index:3;
+}
+
+.split-no-image{
+  grid-template-columns:.75fr 1.25fr !important;
+}
+
+.tech-pattern{
+  min-height:360px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(circle at 30% 35%, rgba(227,27,35,.22), transparent 26%),
+    linear-gradient(145deg,#132a41,#0b1b2a);
+  position:relative;
+  overflow:hidden;
+}
+.tech-pattern::before,
+.tech-pattern::after{
+  content:"";
+  position:absolute;
+  border:2px solid rgba(255,255,255,.12);
+  border-radius:24px;
+}
+.tech-pattern::before{
+  width:62%;
+  height:62%;
+  left:12%;
+  top:14%;
+}
+.tech-pattern::after{
+  width:42%;
+  height:42%;
+  right:8%;
+  bottom:9%;
+}
+.tech-pattern{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+}
+.tech-pattern span{display:none}
+
+@media(max-width:950px){
+  .hero-side-clean{
+    min-height:430px;
+  }
+  .hero-pattern{
+    inset:20px 0 20px 0;
+  }
+  .hero-side-clean .info{
+    position:relative !important;
+    right:auto !important;
+    bottom:auto !important;
+    width:100% !important;
+    margin-top:18px;
+  }
+  .split-no-image{
+    grid-template-columns:1fr !important;
+  }
+  .tech-pattern{
+    min-height:260px;
+  }
+}
