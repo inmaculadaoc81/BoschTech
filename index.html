@@ -85,4 +85,24 @@ mainMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   menuBtn.setAttribute('aria-expanded','false');
 }));
 
-document.getElementById('f').addEventListener('submit',async e=>{e.preventDefault();let s=document.getElementById('status');s.textContent='Enviando...';try{let r=await fetch('/api/contacto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.target).entries()))});if(!r.ok)throw 0;s.textContent='Consulta enviada correctamente.';e.target.reset()}catch{s.textContent='No se pudo enviar. Contacta por teléfono o WhatsApp.'}})</script></body></html>
+document.getElementById('f').addEventListener('submit',async e=>{e.preventDefault();let s=document.getElementById('status');s.textContent='Enviando...';try{let r=await fetch('/api/contacto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.target).entries()))});if(!r.ok)throw 0;s.textContent='Consulta enviada correctamente.';e.target.reset()}catch{s.textContent='No se pudo enviar. Contacta por teléfono o WhatsApp.'}})</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"BoscTech Reparación",
+  "telephone":"+34 914 46 85 03",
+  "description":"Reparación independiente de pequeños electrodomésticos Bosch en Madrid: aspiradoras, batidoras, cafeteras, procesadores de alimentos, robots de cocina MUM y tostadores.",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"C. Joaquín María López, 26",
+    "postalCode":"28015",
+    "addressLocality":"Madrid",
+    "addressCountry":"ES"
+  },
+  "areaServed":"Madrid",
+  "sameAs":["https://maps.app.goo.gl/qDMyYCAVwHC7mUku8","https://www.youtube.com/channel/UCaxAqLD9Mk5gvzqoDedlWSA"]
+}
+</script>
+</body></html>
