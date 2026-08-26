@@ -1,9 +1,12 @@
 {
+  "name": "boschtech-onepage",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": "22.x"
   },
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "@vercel/functions": "^2.0.3"
   }
 }
