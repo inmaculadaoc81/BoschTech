@@ -56,3 +56,14 @@ REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente)
   icono. Añadidos ambos.
 - Formulario verificado: fetch a /api/contacto coincide con
   api/contacto.js; conexión correcta.
+
+REVISIÓN ADICIONAL (a petición del cliente):
+- Quitados del hero los 3 pills ("Averías y problemas de
+  funcionamiento", "Reparación en Madrid", "Valoración antes de
+  decidir") y el aviso "No somos servicio técnico oficial..." de esa
+  ubicación concreta (se mantiene igual en la sección de contacto, en
+  el footer y en la franja fija bajo el menú, así que el aviso de
+  independencia sigue visible en todo el sitio).
+- Sustituido por una insignia de precio: "✓ Diagnóstico: 20 € + IVA".
+  Añadida también una fila "Diagnóstico: 20 € + IVA" en la caja de
+  información, para que sea coherente en toda la página.
