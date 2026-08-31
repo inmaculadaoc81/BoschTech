@@ -35,3 +35,24 @@ REVISIÓN (fixes aplicados en esta pasada):
   clamp(46-74px) en escritorio, 38px → 46px en móvil.
 
 Formulario: usa SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS y CONTACT_EMAIL en Vercel. El correo no aparece visible en la web.
+
+REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente):
+- H1 repetía la plantilla "no funciona. Aquí lo revisamos..." usada
+  en varios repos. Reescrito: "Tu Bosch hace ruido o no arranca. Lo
+  revisamos." (9 palabras).
+- Texto decorativo ".hero:before" ("REPARACIÓN · BOSCH · MADRID") no
+  se ocultaba en móvil como en otros repos con el mismo patrón de
+  ticker de fondo; añadido display:none en el breakpoint ≤550px.
+- Franja de aviso de servicio técnico independiente añadida también
+  como banner fijo debajo del menú (ya existía un aviso similar en el
+  hero y en el footer; se mantiene, esta franja lo refuerza igual que
+  en el resto de la familia).
+- Añadido "Sábados, domingos y días festivos estamos cerrados" debajo
+  del horario.
+- BUG REAL — el formulario no tenía ninguna casilla de consentimiento
+  de política de privacidad. Añadida, con enlace a
+  https://kelatos.com/privacy-policy/ en azul y subrayado.
+- Ninguno de los botones CTA del hero (WhatsApp ni teléfono) tenía
+  icono. Añadidos ambos.
+- Formulario verificado: fetch a /api/contacto coincide con
+  api/contacto.js; conexión correcta.
