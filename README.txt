@@ -89,3 +89,14 @@ REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente 
 - Verificado: la insignia "✓ Diagnóstico: 20 € + IVA" (.diag-badge) es
   una etiqueta única de precio, no el patrón de franja de insignias de
   4 elementos de la familia Dyson; no aplica la reubicación.
+
+REVISIÓN ADICIONAL (nueva regla de menú móvil, a petición del cliente):
+- BUG REAL — la franja de aviso de independencia estaba dentro de
+  <header>. Movida fuera de <header>, como hermana justo después de
+  él y antes del hero: sigue siendo la misma franja amarilla de ancho
+  completo.
+- Verificado: el header (element selector "header{position:sticky;
+  top:0}") ya se mantenía fijo/pegado arriba al hacer scroll; no
+  requería cambios.
+- Verificado de nuevo: el checklist de 7 puntos ya estaba aplicado de
+  una pasada anterior; no requería cambios.
