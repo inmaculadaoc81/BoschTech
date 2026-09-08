@@ -100,3 +100,13 @@ REVISIÓN ADICIONAL (nueva regla de menú móvil, a petición del cliente):
   requería cambios.
 - Verificado de nuevo: el checklist de 7 puntos ya estaba aplicado de
   una pasada anterior; no requería cambios.
+
+DOMINIO CONFIRMADO EN VIVO (a petición del cliente):
+- BUG REAL — el dominio real de BoscTech es electrofix.com.es
+  (confirmado accediendo en vivo: la home carga correctamente con el
+  título de esta marca). El README anterior indicaba que "no se ha
+  proporcionado" ningún dominio, así que canonical/og:url/JSON-LD
+  "url" nunca se habían añadido, y sitemap.xml/robots.txt tampoco
+  existían (electrofix.com.es/sitemap.xml devolvía 404 NOT_FOUND).
+  Añadidos todos: canonical, og:title/og:description/og:url/og:type,
+  el campo "url" del JSON-LD LocalBusiness, sitemap.xml y robots.txt.
