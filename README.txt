@@ -110,3 +110,15 @@ DOMINIO CONFIRMADO EN VIVO (a petición del cliente):
   existían (electrofix.com.es/sitemap.xml devolvía 404 NOT_FOUND).
   Añadidos todos: canonical, og:title/og:description/og:url/og:type,
   el campo "url" del JSON-LD LocalBusiness, sitemap.xml y robots.txt.
+
+BLOG (/blog):
+- Los artículos NO viven en este repositorio: los genera y aprueba el agente
+  SEO de Kelatos (Agentes V2 → organización «BoscTech», clave bosctech) y se
+  leen en vivo de la API pública de Kelatos, sin token:
+  https://db.affirmatechnology.com/kelatos-api/publico/blog?org=bosctech
+- api/blog.js + lib/blog.js generan /blog y /blog/<slug> en el servidor;
+  copian de index.html la cabecera, el aviso, el pie, WhatsApp, cookies y Analytics.
+- api/sitemap.js genera /sitemap.xml (se eliminó el sitemap.xml estático).
+- vercel.json: rewrites del blog; la redirección a la home ya no afecta a /blog.
+- Estilos en assets/blog.css. Enlace «Blog» en el menú y en el pie.
+- El diagnóstico cuesta 20 € + IVA: el blog no debe decir que es gratuito.
