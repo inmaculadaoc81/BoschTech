@@ -1,1 +1,18 @@
-const nodemailer=require("./_correo.js");module.exports=async(req,res)=>{if(req.method!=="POST")return res.status(405).end();try{const b=req.body||{};const tr=nodemailer.createTransport({host:process.env.SMTP_HOST,port:Number(process.env.SMTP_PORT||465),secure:true,auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASS}});await tr.sendMail({from:process.env.SMTP_USER,to:process.env.CONTACT_EMAIL||process.env.SMTP_USER,replyTo:b.email,subject:"Nueva consulta BoscTech",text:`Nombre: ${b.nombre}\nTeléfono: ${b.telefono}\nEmail: ${b.email}\nEquipo: ${b.equipo}\n\n${b.mensaje}`});res.status(200).json({ok:true})}catch(e){console.error(e);res.status(500).json({ok:false})}};
+const nodemailer=require("./_correo.js");
+const clean=(v,m=4000)=>String(v??"").replace(/[<>]/g,"").trim().slice(0,m);
+const EMAIL_RE=/^[^\s@"(),:;<>[\]\\]+@[^\s@"(),:;<>[\]\\]+\.[a-z]{2,}$/i;
+module.exports=async(req,res)=>{
+  if(req.method!=="POST")return res.status(405).end();
+  try{
+    const b=req.body||{};
+    if(clean(b.website))return res.status(200).json({ok:true});
+    const ts=Number(b.ts);
+    if(!ts||Date.now()-ts<2000)return res.status(200).json({ok:true});
+    const nombre=clean(b.nombre,120),telefono=clean(b.telefono,60),email=clean(b.email,180),equipo=clean(b.equipo,180),mensaje=clean(b.mensaje);
+    if(!nombre||!telefono||!email||!mensaje)return res.status(400).json({ok:false});
+    if(!EMAIL_RE.test(email))return res.status(400).json({ok:false});
+    const tr=nodemailer.createTransport({host:process.env.SMTP_HOST,port:Number(process.env.SMTP_PORT||465),secure:true,auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASS}});
+    await tr.sendMail({from:process.env.SMTP_USER,to:process.env.CONTACT_EMAIL||process.env.SMTP_USER,replyTo:email,subject:"Nueva consulta BoscTech",text:`Nombre: ${nombre}\nTeléfono: ${telefono}\nEmail: ${email}\nEquipo: ${equipo}\n\n${mensaje}`});
+    res.status(200).json({ok:true})
+  }catch(e){console.error(e);res.status(500).json({ok:false})}
+};
